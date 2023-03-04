@@ -1,6 +1,6 @@
 title: ReApptor TypeScript PagedList
-tagline: TODO Description.
-description: TODO Description.
+tagline: PagedList is a package for splitting the array into pages and selecting a specific "page" by an index.
+description: PagedList is a package for splitting the array into pages and selecting a specific "page" by an index. It includes an `IPagedList` interface, `PagedList` container, and array extension.
 author: ReApptor
 social:
   name: ReApptor
