@@ -1,15 +1,18 @@
 {
   "name": "@reapptor/ts-paged-list",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type":"module",
   "repository": {
     "type": "git",
     "url": "https://github.com/ReApptor/ReApptor.TypeScript.PagedList"
   },
   "author": "ReApptor",
-  "description": "",
+  "description": "PagedList is a package for splitting the array into pages and selecting a specific page by an index.",
   "keywords": [
+    "PagedList",
+    "paged-list",
+    "ts-paged-list",
     "paged list",
     "pagination",
     "ts",
