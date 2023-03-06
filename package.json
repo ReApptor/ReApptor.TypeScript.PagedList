@@ -21,5 +21,9 @@
   "peerDependencies": {
   },
   "private": false,
-  "homepage": "https://reapptor.github.io/ReApptor.TypeScript.PagedList/"
+  "homepage": "https://reapptor.github.io/ReApptor.TypeScript.PagedList/",
+  "bugs": {
+    "url": "https://github.com/ReApptor/ReApptor.TypeScript.PagedList/issues",
+    "email": "contact@reapptor.com"
+  }
 }
