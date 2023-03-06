@@ -30,7 +30,7 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 - [Overview](https://reapptor.github.io/ReApptor.TypeScript.PagedList/)
 - [Source code](https://github.com/ReApptor/ReApptor.TypeScript.PagedList)
 - [Package (GitHub)](https://github.com/ReApptor/ReApptor.TypeScript.PagedList/pkgs/npm/ts-paged-list)
-- [Package (NPM)](https://www.npmjs.com/package/@reapptor/ts-linq)
+- [Package (NPM)](https://www.npmjs.com/package/@reapptor/ts-paged-list)
 - [Discussions](https://github.com/ReApptor/ReApptor.TypeScript.PagedList/discussions)
 - [About ReApptor](https://www.reapptor.com)
 - [ReApptor on GitHub](https://github.com/ReApptor)
