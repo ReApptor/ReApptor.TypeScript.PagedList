@@ -1,8 +1,8 @@
 ![ReApptor](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/ReApptor.png)
 # ReApptor TypeScript PagedList
 
-PagedList is a package for splitting the array into pages and selecting a specific "page" by an index.\
-It includes an `IPagedList` interface, `PagedList` container, and array extension.
+It is a complete, fully tested pagination library for splitting the array into pages and selecting a specific page by an index.
+It includes an `IPagedList` interface, a `PagedList` container, and an array extension written in [TypeScript](https://www.typescriptlang.org/).
 
 ## Installation
 
