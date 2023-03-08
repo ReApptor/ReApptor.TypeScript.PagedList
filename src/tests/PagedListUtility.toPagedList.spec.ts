@@ -180,4 +180,21 @@ describe("toPagedList", () => {
         expect(result.isLastPage).toEqual(false);
     });
     
+    test("readme-example-1", () => {
+        const input: number[] = [1, 2, 3, 4, 5];
+
+        const page: IPagedList<number> = input.toPagedList(2, 2);
+
+        console.log(`page ${page.pageNumber}/${page.pageCount}`);
+        console.log(`page items [${page.items}] from [${input}]`);
+        console.log("");
+        console.log("totalItemCount = ", page.totalItemCount);
+        console.log("pageCount = ", page.pageCount);
+        console.log("pageSize = ", page.pageSize);
+        console.log("hasPreviousPage = ", page.hasPreviousPage);
+        console.log("hasNextPage = ", page.hasNextPage);
+        console.log("isFirstPage = ", page.isFirstPage);
+        console.log("isLastPage = ", page.isLastPage);
+    });
+    
 });

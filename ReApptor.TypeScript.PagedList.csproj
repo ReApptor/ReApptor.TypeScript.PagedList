@@ -35,7 +35,6 @@
       <TypeScriptCompile Include="src\extensions\ArrayExtensions.ts" />
       <TypeScriptCompile Include="src\index.ts" />
       <TypeScriptCompile Include="src\interfaces\IPagedList.ts" />
-      <TypeScriptCompile Include="src\models\PagedList.ts" />
       <TypeScriptCompile Include="src\utilities\PagedListUtility.ts" />
     </ItemGroup>
 

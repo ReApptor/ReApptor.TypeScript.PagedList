@@ -36,6 +36,107 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 - [ReApptor on GitHub](https://github.com/ReApptor)
 - [ReApptor in LinkedIn](https://www.linkedin.com/company/reapptor/)
 
-## Included query functions
+## IPagedList interface
+Represents a subset of input items that can be individually accessed by index and\
+contains metadata about the superset collection of objects this subset was created from.
+```typescript
+export default interface IPagedList<T = {}> {
 
-TODO: !!! Describe extensions here !!!
+    /**
+     * The page items.
+     */
+    readonly items: readonly T[];
+
+    /**
+     * The page index is in the superset starting from 1.
+     */
+    readonly pageNumber: number;
+
+    /**
+     * The maximum size of any page.
+     */
+    readonly pageSize: number;
+
+    /**
+     * The total number of pages within the superset
+     */
+    readonly pageCount: number;
+
+    /**
+     * The total number of elements contained within the superset.
+     */
+    readonly totalItemCount: number;
+
+    /**
+     * Returns true if the page number is higher than 1, showing that the subset is not the first within the superset.
+     */
+    readonly hasPreviousPage: boolean;
+
+    /**
+     * Returns true if the page number is less than the page count, showing that the subset is not the latest within the superset.
+     */
+    readonly hasNextPage: boolean;
+
+    /**
+     * Returns true if the page number is 1, showing that the subset is the first within the superset.
+     */
+    readonly isFirstPage: boolean;
+
+    /**
+     * Returns true if the page number equals the page count, showing that the subset is the last within the superset.
+     */
+    readonly isLastPage: boolean;
+}
+```
+
+## Array extension functions
+
+### ToPagedList
+Splits the input superset collection into pages (subsets) and returns the specific page (subset) by an index.
+```typescript
+/**
+ * Splits the input superset collection into pages (subsets) and returns the specific page (subset) by an index.
+ * @param pageNumber - The page index is in the superset starting from 1.
+ * @param pageSize - The maximum size of any page.
+ * @returns IPagedList<T> - An IPagedList<T> object object that contains the specified subset and metadata about the input superset collection of objects this subset was created from.
+ */
+toPagedList(pageNumber: number, pageSize: number): IPagedList<T>;
+```
+#### Examples
+
+###### Example #1
+The following code example method groups the items by the specified property.
+It creates an array of objects with the name and age properties and calls
+the groupBy method on it with the callback function that groups the objects
+by their age.\
+The expected result is an array with two sub-arrays, where each sub-array
+contains objects with the same age.
+
+```typescript
+const input: number[] = [1, 2, 3, 4, 5];
+
+const page: IPagedList<number> = input.toPagedList(2, 2);
+
+console.log(`page #${page.pageNumber} from ${page.pageCount}`);
+console.log(`page items [${page.items}] from [${input}]`);
+console.log("");
+console.log("pageSize = ", page.pageSize);
+console.log("totalItemCount = ", page.totalItemCount);
+console.log("hasPreviousPage = ", page.hasPreviousPage);
+console.log("hasNextPage = ", page.hasNextPage);
+console.log("isFirstPage = ", page.isFirstPage);
+console.log("isLastPage = ", page.isLastPage);
+```
+#### Code produces the following output:
+```
+ page 2/3
+ page items = [ 3, 4 ] from [ 1, 2, 3, 4, 5 ]
+ 
+ totalItemCount = 5
+ pageSize = 2
+ pageCount = 3
+ hasPreviousPage = true
+ hasNextPage = true
+ isFirstPage = false
+ isLastPage = false
+```
