@@ -36,6 +36,14 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 - [ReApptor on GitHub](https://github.com/ReApptor)
 - [ReApptor in LinkedIn](https://www.linkedin.com/company/reapptor/)
 
+## Other projects
+### ReApptor.Typescript.Linq
+- [Overview](https://reapptor.github.io/ReApptor.TypeScript.Linq/)
+- [Source code](https://github.com/ReApptor/ReApptor.TypeScript.Linq)
+- [Package (GitHub)](https://github.com/ReApptor/ReApptor.TypeScript.Linq/pkgs/npm/ts-linq)
+- [Package (NPM)](https://www.npmjs.com/package/@reapptor/ts-linq)
+- [Discussions](https://github.com/ReApptor/ReApptor.TypeScript.Linq/discussions)
+
 ## IPagedList interface
 Represents a subset of input items that can be individually accessed by index and\
 contains metadata about the superset collection of objects this subset was created from.
