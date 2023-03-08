@@ -26,6 +26,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(0);
     });
     
     test("single-page", () => {
@@ -44,6 +46,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(99);
     });
     
     test("first-page", () => {
@@ -62,6 +66,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(true);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(false);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(99);
     });
     
     test("last-page", () => {
@@ -80,6 +86,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(false);
         expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(100);
+        expect(result.lastItemIndex).toEqual(199);
     });
     
     test("middle-page", () => {
@@ -98,6 +106,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(true);
         expect(result.isFirstPage).toEqual(false);
         expect(result.isLastPage).toEqual(false);
+        expect(result.firstItemIndex).toEqual(100);
+        expect(result.lastItemIndex).toEqual(199);
     });
     
     test("extended-page", () => {
@@ -116,6 +126,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(49);
     });
     
     test("external-page-number", () => {
@@ -134,6 +146,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(true);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(false);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(99);
     });
     
     test("any-type", () => {
@@ -152,24 +166,26 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(true);
         expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(99);
     });
     
     test("anonymous-type", () => {
-        const input: { name: string, index: number}[] = [
-            { name: "1", index: 1 },
-            { name: "2", index: 2 },
-            { name: "3", index: 3 },
-            { name: "4", index: 4 },
-            { name: "5", index: 5 },
+        const input: { value: string, index: number}[] = [
+            { value: "1", index: 0 },
+            { value: "2", index: 1 },
+            { value: "3", index: 2 },
+            { value: "4", index: 3 },
+            { value: "5", index: 4 },
         ];
         
-        const result: IPagedList<{ name: string, index: number}> = input.toPagedList(2, 2);
+        const result: IPagedList<{ value: string, index: number}> = input.toPagedList(2, 2);
         
         expect(result.items.length).toEqual(2);
-        expect(result.items[0].index).toEqual(3);
-        expect(result.items[0].name).toEqual("3");
-        expect(result.items[1].index).toEqual(4);
-        expect(result.items[1].name).toEqual("4");
+        expect(result.items[0].index).toEqual(2);
+        expect(result.items[0].value).toEqual("3");
+        expect(result.items[1].index).toEqual(3);
+        expect(result.items[1].value).toEqual("4");
         expect(result.totalItemCount).toEqual(5);
         expect(result.pageNumber).toEqual(2);
         expect(result.pageCount).toEqual(3);
@@ -178,6 +194,8 @@ describe("toPagedList", () => {
         expect(result.hasNextPage).toEqual(true);
         expect(result.isFirstPage).toEqual(false);
         expect(result.isLastPage).toEqual(false);
+        expect(result.firstItemIndex).toEqual(2);
+        expect(result.lastItemIndex).toEqual(3);
     });
     
     test("readme-example-1", () => {
@@ -195,6 +213,8 @@ describe("toPagedList", () => {
         console.log("hasNextPage = ", page.hasNextPage);
         console.log("isFirstPage = ", page.isFirstPage);
         console.log("isLastPage = ", page.isLastPage);
+        console.log("firstItemIndex = ", page.firstItemIndex);
+        console.log("lastItemIndex = ", page.lastItemIndex);
     });
     
 });

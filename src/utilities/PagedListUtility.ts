@@ -32,6 +32,10 @@ export default class PagedListUtility {
 
         const pageItems: T[] = items.slice(firstIndex, firstIndex + pageSize);
 
+        const lastIndex: number = (pageItems.length > 1)
+            ? firstIndex + pageItems.length - 1
+            : firstIndex;
+
         return {
             items: pageItems,
             pageSize: pageSize,
@@ -42,6 +46,8 @@ export default class PagedListUtility {
             hasNextPage: (pageNumber < pageCount),
             isFirstPage: (pageNumber == 1),
             isLastPage: (pageNumber >= pageCount),
+            firstItemIndex: firstIndex,
+            lastItemIndex: lastIndex
         } as IPagedList<T>;
     }
 }

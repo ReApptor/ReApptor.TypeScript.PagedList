@@ -7,10 +7,10 @@ export default interface IPagedList<out T = {}> {
     /**
      * The page items.
      */
-    readonly items: readonly T[];
+    readonly items: T[];
 
     /**
-     * The page index is in the superset starting from 1.
+     * The one-based page index is in the superset.
      */
     readonly pageNumber: number;
 
@@ -48,4 +48,14 @@ export default interface IPagedList<out T = {}> {
      * Returns true if the page number equals the page count, showing that the subset is the last within the superset.
      */
     readonly isLastPage: boolean;
+
+    /**
+     * The zero-based index of the first item in the paged subset within the superset.
+     */
+    readonly firstItemIndex: number;
+
+    /**
+     * The zero-based index of the last item in the paged subset within the superset.
+     */
+    readonly lastItemIndex: number;
 }
