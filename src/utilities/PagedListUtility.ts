@@ -1,12 +1,6 @@
 import IPagedList from "../interfaces/IPagedList";
-import PagedList from "../models/PagedList";
 
 export default class PagedListUtility {
-
-    private static inRange(pageNumber: number, pageSize: number, totalItemCount: number): boolean {
-        const lastPageNumber: number = totalItemCount / pageSize + 1;
-        return (pageNumber <= lastPageNumber);
-    }
 
     public static toPagedList<T>(items: readonly T[] | null | undefined, pageNumber: number, pageSize: number): IPagedList<T> {
 
@@ -20,13 +14,8 @@ export default class PagedListUtility {
             pageSize = Number.MAX_SAFE_INTEGER;
         }
 
-        const firstIndex: number = (pageNumber - 1) * pageSize;
         const totalItemCount: number = items.length;
 
-        if (!this.inRange(pageNumber, pageSize, totalItemCount)) {
-            return this.toPagedList(items, 1, pageSize);
-        }
-        
         let pageCount: number = Math.trunc(totalItemCount / pageSize);
 
         if (pageCount === 0) {
@@ -35,15 +24,24 @@ export default class PagedListUtility {
             pageCount++;
         }
 
+        if (pageNumber > pageCount) {
+            pageNumber = 1; //pageCount
+        }
+
+        const firstIndex: number = (pageNumber - 1) * pageSize;
+
         const pageItems: T[] = items.slice(firstIndex, firstIndex + pageSize);
 
-        const pagedList = new PagedList<T>();
-        pagedList.items = pageItems;
-        pagedList.pageSize = pageSize;
-        pagedList.totalItemCount = totalItemCount;
-        pagedList.pageNumber = pageNumber;
-        
-        return pagedList;
+        return {
+            items: pageItems,
+            pageSize: pageSize,
+            totalItemCount: totalItemCount,
+            pageNumber: pageNumber,
+            pageCount: pageCount,
+            hasPreviousPage: (pageNumber > 1),
+            hasNextPage: (pageNumber < pageCount),
+            isFirstPage: (pageNumber == 1),
+            isLastPage: (pageNumber >= pageCount),
+        } as IPagedList<T>;
     }
-
 }

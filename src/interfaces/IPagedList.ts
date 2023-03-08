@@ -3,25 +3,33 @@ export default interface IPagedList<T = {}> {
     /*
      * The page items.
      */
-    items: T[];
+    readonly items: readonly T[];
 
     /*
      * The page index is in the superset starting from 1.
      */
-    pageNumber: number;
+    readonly pageNumber: number;
 
     /*
      * The maximum size of any page.
      */
-    pageSize: number;
+    readonly pageSize: number;
 
     /*
      * The total number of pages within the superset
      */
-    pageCount: number;
+    readonly pageCount: number;
 
     /*
      * The total number of elements contained within the superset.
      */
-    totalItemCount: number;
+    readonly totalItemCount: number;
+
+    readonly hasPreviousPage: boolean;
+
+    readonly hasNextPage: boolean;
+
+    readonly isFirstPage: boolean;
+
+    readonly isLastPage: boolean;
 }
