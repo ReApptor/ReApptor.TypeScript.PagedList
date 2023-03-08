@@ -123,12 +123,6 @@ toPagedList(pageNumber: number, pageSize: number): IPagedList<T>;
 #### Examples
 
 ###### Example #1
-The following code example method groups the items by the specified property.
-It creates an array of objects with the name and age properties and calls
-the groupBy method on it with the callback function that groups the objects
-by their age.\
-The expected result is an array with two sub-arrays, where each sub-array
-contains objects with the same age.
 
 ```typescript
 const input: number[] = [1, 2, 3, 4, 5];
@@ -144,6 +138,8 @@ console.log("hasPreviousPage = ", page.hasPreviousPage);
 console.log("hasNextPage = ", page.hasNextPage);
 console.log("isFirstPage = ", page.isFirstPage);
 console.log("isLastPage = ", page.isLastPage);
+console.log("firstItemIndex = ", page.firstItemIndex);
+console.log("lastItemIndex = ", page.lastItemIndex);
 ```
 #### Code produces the following output:
 ```
@@ -157,4 +153,6 @@ console.log("isLastPage = ", page.isLastPage);
  hasNextPage = true
  isFirstPage = false
  isLastPage = false
+ firstItemIndex = 2
+ lastItemIndex = 3
 ```
