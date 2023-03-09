@@ -2,7 +2,7 @@
 # ReApptor TypeScript PagedList
 
 It is a complete, fully tested pagination library for splitting the array into pages and selecting a specific page by an index.
-It includes an `IPagedList` interface, a `PagedList` container, and an array extension written in [TypeScript](https://www.typescriptlang.org/).
+It includes an `IPagedList` interface, a `PagedList` container, and an array `toPagedList` extension written in [TypeScript](https://www.typescriptlang.org/).
 
 ## Installation
 
@@ -22,7 +22,12 @@ Install via package.json:
 
 Add `import "@reapptor/ts-paged-list";` into the main project file (i.e. index.ts) to register extensions.
 
-Use array extension `toPagedList` to select the page a specific page by page index and size, for example: `[1,2,3,4,5].toPagedList(1, 2)`;
+Use array extension `toPagedList` to select the page a specific page by page index and size, for example: `[1,2,3,4,5].toPagedList(1, 2)`.
+
+See more:
+- [`IPagedList` interface description](#IPagedList).
+- [`ToPagedList` extension description](#ToPagedList).
+- [Some examples](#Examples)
 
 ## License
 
@@ -43,7 +48,7 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 [<small>@reapptor/ts-linq</small>](https://github.com/ReApptor/ReApptor.TypeScript.Linq/pkgs/npm/ts-linq)\
 <small>It is a complete, fully tested analog of C# Language-Integrated Query (LINQ) written in TypeScript.</small>
 
-## IPagedList interface
+## IPagedList
 Represents a subset of input items that can be individually accessed by index and\
 contains metadata about the superset collection of objects this subset was created from.
 ```typescript
@@ -145,13 +150,44 @@ console.log("lastItemIndex = ", page.lastItemIndex);
  page 2/3
  page items = [ 3, 4 ] from [ 1, 2, 3, 4, 5 ]
  
- totalItemCount = 5
  pageSize = 2
- pageCount = 3
+ totalItemCount = 5
  hasPreviousPage = true
  hasNextPage = true
  isFirstPage = false
  isLastPage = false
  firstItemIndex = 2
  lastItemIndex = 3
+```
+
+###### Example #2
+The initializing of the empty page.
+```typescript
+const page: IPagedList = [].toPagedList(1, 100);
+
+console.log(`page #${page.pageNumber} from ${page.pageCount}`);
+console.log(`page items [${page.items}] from []`);
+console.log("");
+console.log("pageSize = ", page.pageSize);
+console.log("totalItemCount = ", page.totalItemCount);
+console.log("hasPreviousPage = ", page.hasPreviousPage);
+console.log("hasNextPage = ", page.hasNextPage);
+console.log("isFirstPage = ", page.isFirstPage);
+console.log("isLastPage = ", page.isLastPage);
+console.log("firstItemIndex = ", page.firstItemIndex);
+console.log("lastItemIndex = ", page.lastItemIndex);
+```
+#### Code produces the following output:
+```
+ page 1/1
+ page items = [] from []
+ 
+ pageSize = 100
+ totalItemCount = 0
+ hasPreviousPage = false
+ hasNextPage = false
+ isFirstPage = true
+ isLastPage = true
+ firstItemIndex = 0
+ lastItemIndex = 0
 ```

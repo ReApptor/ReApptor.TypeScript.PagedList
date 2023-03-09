@@ -217,4 +217,20 @@ describe("toPagedList", () => {
         console.log("lastItemIndex = ", page.lastItemIndex);
     });
     
+    test("readme-example-2", () => {
+        const page: IPagedList = [].toPagedList(1, 100);
+
+        console.log(`page #${page.pageNumber} from ${page.pageCount}`);
+        console.log(`page items [${page.items}] from []`);
+        console.log("");
+        console.log("pageSize = ", page.pageSize);
+        console.log("totalItemCount = ", page.totalItemCount);
+        console.log("hasPreviousPage = ", page.hasPreviousPage);
+        console.log("hasNextPage = ", page.hasNextPage);
+        console.log("isFirstPage = ", page.isFirstPage);
+        console.log("isLastPage = ", page.isLastPage);
+        console.log("firstItemIndex = ", page.firstItemIndex);
+        console.log("lastItemIndex = ", page.lastItemIndex);
+    });
+    
 });

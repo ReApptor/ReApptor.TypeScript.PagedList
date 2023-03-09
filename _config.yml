@@ -1,6 +1,6 @@
-title: TypeScript PagedList ©ReApptor
-tagline: PagedList is a package for splitting the array into pages and selecting a specific "page" by an index written in TypeScript.
-description: PagedList is a package for splitting the array into pages and selecting a specific "page" by an index. It includes an `IPagedList` interface, `PagedList` container, and array extension written in TypeScript..
+title: TypeScript PagedList
+tagline: It is a completed, fully tested pagination library for splitting the array into pages and selecting a specific page by an index written in TypeScript.
+description: It is a completed, fully tested pagination library for splitting the array into pages and selecting a specific page by an index written in TypeScript.
 author: ReApptor
 social:
   name: ReApptor
