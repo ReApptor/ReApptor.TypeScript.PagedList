@@ -22,6 +22,8 @@ Install via package.json:
 
 Add `import "@reapptor/ts-paged-list";` into the main project file (i.e. index.ts) to register extensions.
 
+Use array extension `toPagedList` to select the page a specific page by page index and size, for example: `[1,2,3,4,5].toPagedList(1, 2)`;
+
 ## License
 
 The ReApptor TypeScript PagedList package is licensed under the terms of the [MIT license](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/LICENSE.md) and is available for free.
@@ -37,12 +39,9 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 - [ReApptor in LinkedIn](https://www.linkedin.com/company/reapptor/)
 
 ## Other projects
-### ReApptor.Typescript.Linq
-- [Overview](https://reapptor.github.io/ReApptor.TypeScript.Linq/)
-- [Source code](https://github.com/ReApptor/ReApptor.TypeScript.Linq)
-- [Package (GitHub)](https://github.com/ReApptor/ReApptor.TypeScript.Linq/pkgs/npm/ts-linq)
-- [Package (NPM)](https://www.npmjs.com/package/@reapptor/ts-linq)
-- [Discussions](https://github.com/ReApptor/ReApptor.TypeScript.Linq/discussions)
+- [ReApptor.TypeScript.Linq](https://reapptor.github.io/ReApptor.TypeScript.Linq/)
+[<small>@reapptor/ts-linq</small>](https://github.com/ReApptor/ReApptor.TypeScript.Linq/pkgs/npm/ts-linq)\
+<small>It is a complete, fully tested analog of C# Language-Integrated Query (LINQ) written in TypeScript.</small>
 
 ## IPagedList interface
 Represents a subset of input items that can be individually accessed by index and\
@@ -123,7 +122,7 @@ toPagedList(pageNumber: number, pageSize: number): IPagedList<T>;
 #### Examples
 
 ###### Example #1
-
+Selecting the second page from an array of numbers with page size 2.
 ```typescript
 const input: number[] = [1, 2, 3, 4, 5];
 
