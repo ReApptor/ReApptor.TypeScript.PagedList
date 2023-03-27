@@ -37,7 +37,7 @@ The ReApptor TypeScript PagedList package is licensed under the terms of the [MI
 
 The code is <b>100%</b> covered by the JEST tests.\
 The generated coverage result is here:\
-![Coverage Summary](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/coverage/coverage-summary.json)
+[Coverage Summary](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/coverage/coverage-summary.json)
 
 ## Links
 - [Overview](https://reapptor.github.io/ReApptor.TypeScript.PagedList/)
