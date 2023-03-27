@@ -33,6 +33,12 @@ See more:
 
 The ReApptor TypeScript PagedList package is licensed under the terms of the [MIT license](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/LICENSE.md) and is available for free.
 
+## Testing
+
+The code is <b>100%</b> covered by the JEST tests.\
+The generated coverage result is here:\
+![Coverage Summary](https://raw.githubusercontent.com/ReApptor/ReApptor.TypeScript.PagedList/main/coverage/coverage-summary.json)
+
 ## Links
 - [Overview](https://reapptor.github.io/ReApptor.TypeScript.PagedList/)
 - [Source code](https://github.com/ReApptor/ReApptor.TypeScript.PagedList)

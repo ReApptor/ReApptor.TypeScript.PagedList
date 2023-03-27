@@ -6,10 +6,6 @@ export default class PagedListUtility {
 
         items = items ?? [];
 
-        if (pageNumber <= 0) {
-            pageNumber = 1;
-        }
-
         if (pageSize <= 0) {
             pageSize = Number.MAX_SAFE_INTEGER;
         }

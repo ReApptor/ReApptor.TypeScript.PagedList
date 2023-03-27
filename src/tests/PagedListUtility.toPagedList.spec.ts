@@ -1,5 +1,5 @@
 import "@reapptor/ts-paged-list";
-import {IPagedList} from "@reapptor/ts-paged-list";
+import {IPagedList, PagedListUtility} from "@reapptor/ts-paged-list";
 
 describe("toPagedList", () => {
     
@@ -16,6 +16,24 @@ describe("toPagedList", () => {
         const input: number[] = getInput(0);
 
         const result: IPagedList<number> = input.toPagedList(1, 100);
+        
+        expect(result.items.length).toEqual(0);
+        expect(result.totalItemCount).toEqual(0);
+        expect(result.pageNumber).toEqual(1);
+        expect(result.pageCount).toEqual(1);
+        expect(result.pageSize).toEqual(100);
+        expect(result.hasPreviousPage).toEqual(false);
+        expect(result.hasNextPage).toEqual(false);
+        expect(result.isFirstPage).toEqual(true);
+        expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(0);
+    });
+    
+    test("null", () => {
+        const input: number[] | null = null;
+
+        const result: IPagedList<number> = PagedListUtility.toPagedList(input,1, 100);
         
         expect(result.items.length).toEqual(0);
         expect(result.totalItemCount).toEqual(0);
@@ -122,6 +140,26 @@ describe("toPagedList", () => {
         expect(result.pageNumber).toEqual(1);
         expect(result.pageCount).toEqual(1);
         expect(result.pageSize).toEqual(100);
+        expect(result.hasPreviousPage).toEqual(false);
+        expect(result.hasNextPage).toEqual(false);
+        expect(result.isFirstPage).toEqual(true);
+        expect(result.isLastPage).toEqual(true);
+        expect(result.firstItemIndex).toEqual(0);
+        expect(result.lastItemIndex).toEqual(49);
+    });
+    
+    test("unlimited-page", () => {
+        const input: number[] = getInput(50);
+        
+        const result: IPagedList<number> = input.toPagedList(1, 0);
+
+        expect(result.items.length).toEqual(50);
+        expect(result.items[0]).toEqual(0);
+        expect(result.items[49]).toEqual(49);
+        expect(result.totalItemCount).toEqual(50);
+        expect(result.pageNumber).toEqual(1);
+        expect(result.pageCount).toEqual(1);
+        expect(result.pageSize).toEqual(Number.MAX_SAFE_INTEGER);
         expect(result.hasPreviousPage).toEqual(false);
         expect(result.hasNextPage).toEqual(false);
         expect(result.isFirstPage).toEqual(true);
