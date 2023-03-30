@@ -197,3 +197,7 @@ console.log("lastItemIndex = ", page.lastItemIndex);
  firstItemIndex = 0
  lastItemIndex = 0
 ```
+
+## Hashtags
+
+#pagedlist #paged-list #ts-paged-list #pagination #ts #typescript #npm #github
